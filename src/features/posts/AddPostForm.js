@@ -17,7 +17,8 @@ export const AddPostForm = () => {
   const onContentChanged = (e) => setContent(e.target.value)
   const onAuthorChanged = (e) => setUserId(e.target.value)
 
-  const canSave = [title, content, userId].every(Boolean) && !isLoading
+  // const canSave = [title, content, userId].every(Boolean) && !isLoading
+  const canSave = true
 
   const onSavePostClicked = async () => {
     if (canSave) {
@@ -28,6 +29,9 @@ export const AddPostForm = () => {
         setUserId('')
       } catch (err) {
         console.error('Failed to save the post: ', err)
+        throw new Error(
+          'throw mannual error with release tag and map and github'
+        )
       }
     }
   }
